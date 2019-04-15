@@ -1,0 +1,98 @@
+{
+  "name": "preact-pwa-native-bridge",
+  "amdName": "preact-pwa-native-bridge",
+  "version": "0.0.1",
+  "description": "A javascript bridge for communicating with native wrapper apps.",
+  "main": "dist/preact-pwa-native-bridge.js",
+  "minified:main": "dist/preact-pwa-native-bridge.min.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "npm-run-all transpile optimize minify",
+    "transpile": "rollup -c -m ${npm_package_main}.map -f umd -n $npm_package_amdName -i $npm_package_module -o $npm_package_main",
+    "optimize": "uglifyjs $npm_package_main -bc -o $npm_package_main --source-map \"content=${npm_package_main}.map\"",
+    "minify": "uglifyjs $npm_package_main -mc -o $npm_package_minified_main --source-map \"content=${npm_package_main}.map\"",
+    "test": "npm-run-all -p lint test:unit",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "test:unit": "jest",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Tony MacDonell <tmacdonell@synacor.com>",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "pragma": "h"
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/register": "^7.4.0",
+    "@babel/polyfill": "^7.4.0",
+    "documentation": "^9.3.1",
+    "eslint": "^5.15.3",
+    "eslint-config-synacor": "^3.0.3",
+    "npm-run-all": "^4.1.5",
+    "preact": "^8.4.2",
+    "rollup": "^1.7.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-buble": "^0.19.6",
+    "uglify-js": "^3.5.1",
+    "undom": "^0.4.0",
+    "babel-preset-preact": "^1.1.0",
+    "jest": "^23.0.0",
+    "preact-cli": "^2.1.0",
+    "preact-render-spy": "^1.2.1"
+  },
+  "peerDependencies": {
+    "preact": "*"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.0"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFiles": [
+      "<rootDir>/tests/__mocks__/browserMocks.js"
+    ],
+    "testRegex": "(/(__tests__|tests)/.*|(\\.|/)(test|spec))\\.jsx?$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/tests/__mocks__/*"
+    ],
+    "testURL": "http://localhost:8080",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy",
+      "^./style$": "identity-obj-proxy",
+      "^preact$": "<rootDir>/node_modules/preact/dist/preact.min.js",
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat",
+      "^create-react-class$": "preact-compat/lib/create-react-class",
+      "^react-addons-css-transition-group$": "preact-css-transition-group"
+    }
+  }
+}

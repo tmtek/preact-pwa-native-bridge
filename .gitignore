@@ -1,0 +1,7 @@
+/dist
+/node_modules
+/test-reports
+/coverage
+/build
+npm-debug.log
+package-lock.json

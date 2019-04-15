@@ -1,0 +1,7 @@
+/tests
+/test-reports
+/coverage
+/build
+.DS_Store
+.eslintrc
+.editorconfig

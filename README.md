@@ -2,6 +2,12 @@
 
 The Preact Native Bridge is a simple javascript bridge implementation that allows a wrapping application to communicate with a [Preact](https://preactjs.com/) app. This bridge maintains the philosophy of "props down, events up" by implementing a decorator that allows the wrapping application to set props directly on components.
 
+### Installation 
+
+```
+npm i preact-pwa-native-bridge
+```
+
 ## bridge(bridgeName)
 
 The bridge function allows you to instantiate an object that allows methods of a javascript interface to be called.
@@ -9,7 +15,7 @@ The bridge function allows you to instantiate an object that allows methods of a
 *bridgeName*: The function must be supplied the name of the javascript interface as an argument. This name is defined by the wrapping application.
 
 ```javascript
-import bridge from 'preact-native-bridge';
+import bridge from 'preact-pwa-native-bridge';
 
 const bridgeExampleApi = bridge('exampleAPI');
 const bridgeAnotherApi = bridge('anotherAPI');

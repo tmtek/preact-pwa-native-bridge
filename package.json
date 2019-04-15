@@ -94,5 +94,13 @@
       "^create-react-class$": "preact-compat/lib/create-react-class",
       "^react-addons-css-transition-group$": "preact-css-transition-group"
     }
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmtek/preact-pwa-native-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tmtek/preact-pwa-native-bridge/issues"
+  },
+  "homepage": "https://github.com/tmtek/preact-pwa-native-bridge#readme"
 }

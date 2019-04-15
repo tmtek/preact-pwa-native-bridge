@@ -1,7 +1,7 @@
 {
   "name": "preact-pwa-native-bridge",
   "amdName": "preact-pwa-native-bridge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A javascript bridge for communicating with native wrapper apps.",
   "main": "dist/preact-pwa-native-bridge.js",
   "minified:main": "dist/preact-pwa-native-bridge.min.js",

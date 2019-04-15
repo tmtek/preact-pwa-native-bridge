@@ -91,7 +91,9 @@ class PropsBridge extends Component {
 
 	componentWillMount(){
 		let { bridgeName } = this.props;
-		if (!window || !bridgeName) return;
+		if (typeof window === "undefined" || !bridgeName) { 
+			return;	
+		}
 		let callbackName = `${bridgeName}Props`;
 		if (!window[callbackName]) {
 			window[callbackName] = (propsAsJson) => {
